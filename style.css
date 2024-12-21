@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: antiquewhite;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  #total-cookies-owned {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    color: #740b32;
+  }
+  #totalcookie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    color: #740b32;
+  }
+  #newcookie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    color: #740b32;
+  }
+  
+  #cookie-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 1.4em;
+    border-bottom: 1px solid #333;
+  }
+  
+  #buycookie {
+    height: 100px;
+    width: 100px;
+    border: none;
+    background: #740b32;
+    border-radius: 50px;
+    color: white;
+  }
+  
+  .buy-button {
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    border-radius: 10px;
+    color: aliceblue;
+  }
+  
