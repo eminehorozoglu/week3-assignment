@@ -114,6 +114,7 @@ async function getshopupgrades() {
 
   shopitemdetail();
   readinterval();
+  readintervalPerCookie();
   createinterval();
 }
 getshopupgrades();
