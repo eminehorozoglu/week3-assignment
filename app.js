@@ -23,52 +23,60 @@ async function getshopupgrades() {
   shopItems.push(data);
   console.log(shopItems);
 
-  function createinterval() {
-    let Interval = setInterval(function () {
+  async function createinterval() {
+    let Interval = await setInterval(function () {
       cookiecount = cookiecount + clickvalue;
       ownedCookie.innerText = cookiecount;
       let cookieValue = JSON.stringify(cookiecount);
       localStorage.setItem("Cookies", cookieValue);
     }, 1000);
 
-    let Intervalcps = setInterval(function () {
+    let Intervalcps = await setInterval(function () {
       earnedcookie.innerText = `${clickvalue} Pcs`;
       let cookiePerSecondValue = JSON.stringify(clickvalue);
       localStorage.setItem("CookiesPerSecond", cookiePerSecondValue);
     }, 1000);
   }
-  function readinterval() {
-    const retrievedcookie = localStorage.getItem("Cookies");
+  async function readinterval() {
+    const retrievedcookie = await localStorage.getItem("Cookies");
     console.log(retrievedcookie);
     const parsedcookie = JSON.parse(retrievedcookie);
+    if (parsedcookie == null || parsedcookie === ""){
+cookiecount = 0;
+    }else{
 
     cookiecount = parsedcookie;
   }
-  function readintervalPerCookie() {
-    const retrievedcookiePs = localStorage.getItem("CookiesPerSecond");
+}
+ async function readintervalPerCookie() {
+    const retrievedcookiePs = await localStorage.getItem("CookiesPerSecond");
     console.log(retrievedcookiePs);
     const parsedcookiePs = JSON.parse(retrievedcookiePs);
+    if (parsedcookiePs == null || parsedcookiePs === ""){
+      cookiecount = 1;
+          }else{
+      
     clickvalue = parsedcookiePs;
   }
-
+ }
   const buttonreset = document.createElement("button");
   buttonreset.textContent = "Reset";
   buttonreset.className = "reset-button";
   resetbutton.appendChild(buttonreset);
   buttonreset.addEventListener("click", reset);
 
-  function reset() {
-    cookiecount = cookiecount - cookiecount;
-    clickvalue = clickvalue - clickvalue + 1;
+ async function reset() {
+    cookiecount = await cookiecount - cookiecount;
+    clickvalue = await clickvalue - clickvalue + 1;
   }
 
   const buycookie = document.getElementById("buycookie");
   const cookievalue = document.getElementById("newcookie");
   buycookie.addEventListener("click", buycookies);
 
-  function buycookies() {
-    cookiecount = cookiecount + clickvalue;
-    ownedCookie.innerHTML = cookiecount;
+ async function buycookies() {
+    cookiecount = await cookiecount + clickvalue;
+    ownedCookie.innerHTML = await cookiecount;
   }
 
   function shopitemdetail() {
@@ -114,7 +122,7 @@ async function getshopupgrades() {
 
   shopitemdetail();
   readinterval();
-  readintervalPerCookie();
+ readintervalPerCookie()
   createinterval();
 }
 getshopupgrades();
